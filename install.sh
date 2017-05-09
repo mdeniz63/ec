@@ -1,5 +1,5 @@
 #!/bin/bash
-echo "Run as root user on Centos 7.3"
+echo "Run as root user on Centos 7"
 
 # Install docker ce with Yum
 yum install -y yum-utils
