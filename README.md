@@ -1,2 +1,5 @@
 # ec
-Enterprise Cloud Installation Script
+
+Enterprise Cloud 
+
+Installation and Configuration Scripts
