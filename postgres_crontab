@@ -1,1 +1,0 @@
-00 00 * * * /bin/sh /nitro/script/backup.sh > /nitro/backups/backup.log 2>&1
