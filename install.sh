@@ -7,6 +7,18 @@ yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce
 yum makecache fast
 yum install -y docker-ce
 
+
+
+# Add docker config file /etc/docker/deamon.json
+mkdir -p /home/ec_data
+
+cat > /etc/docker/deamon.json << EOF
+{
+    "graph": "/home/ec_data",
+    "storage-driver": "overlay"
+}
+EOF
+
 # Start and enable docker
 systemctl start docker
 systemctl enable docker
