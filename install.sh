@@ -1,10 +1,11 @@
+# For runing commands from internet
+# source <(curl -s https://raw.githubusercontent.com/mdeniz63/ec/master/install.sh);
+
 #!/bin/bash
 echo "Run as root user on Centos 7"
 
+# disable dnsmasq service which is advised from docker
 systemctl disable dnsmasq
-
-#For runing commands from internet
-#source <(curl -s https://raw.githubusercontent.com/mdeniz63/ec/master/install.sh);
 
 # Install docker ce with Yum
 yum install -y yum-utils
