@@ -15,6 +15,7 @@ yum install -y docker-ce
 
 # Add docker config file /etc/docker/deamon.json
 mkdir -p /home/ec_data
+cd /etc/docker/
 curl https://raw.githubusercontent.com/mdeniz63/ec/master/daemon.json > daemon.json
 
 # Start and enable docker
