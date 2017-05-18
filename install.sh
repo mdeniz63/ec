@@ -1,6 +1,10 @@
 #!/bin/bash
 echo "Run as root user on Centos 7"
 
+#For runing commands from internet
+#url=https://raw.githubusercontent.com/mdeniz63/ec/master/install.sh;
+#source <(curl -s $url);
+
 # Install docker ce with Yum
 yum install -y yum-utils
 yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
