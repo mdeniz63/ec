@@ -1,5 +1,3 @@
-# ec
-
-Enterprise Cloud 
+# Enterprise Cloud 
 
 Installation and Configuration Scripts
