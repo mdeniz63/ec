@@ -18,12 +18,7 @@ yum install -y docker-ce
 # Add docker config file /etc/docker/deamon.json
 mkdir -p /home/ec_data
 
-cat > /etc/docker/deamon.json << EOF
-{
-    "graph": "/home/ec_data",
-    "storage-driver": "overlay"
-}
-EOF
+curl https://raw.githubusercontent.com/mdeniz63/ec/master/deamon.json > /etc/docker/deamon.json 
 
 # Start and enable docker
 systemctl start docker
