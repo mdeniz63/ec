@@ -3,7 +3,9 @@ echo "Run as root user on Centos 7"
 
 # Add docker config file /etc/docker/deamon.json
 mkdir -p /home/ec_data
-curl https://raw.githubusercontent.com/mdeniz63/ec/master/deamon.json > /etc/docker/deamon.json;
+mkdir -p /etc/docker
+curl https://raw.githubusercontent.com/mdeniz63/ec/master/deamon.json > deamon.json
+
 
 systemctl disable dnsmasq
 
