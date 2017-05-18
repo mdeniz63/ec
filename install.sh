@@ -8,7 +8,7 @@ curl https://raw.githubusercontent.com/mdeniz63/ec/master/deamon.json > /etc/doc
 systemctl disable dnsmasq
 
 #For runing commands from internet
-#source <(curl -s https://raw.githubusercontent.com/mdeniz63/ec/master/test.sh);
+#source <(curl -s https://raw.githubusercontent.com/mdeniz63/ec/master/install.sh);
 
 # Install docker ce with Yum
 yum install -y yum-utils
