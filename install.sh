@@ -1,6 +1,10 @@
 #!/bin/bash
 echo "Run as root user on Centos 7"
 
+# Add docker config file /etc/docker/deamon.json
+mkdir -p /home/ec_data
+curl https://raw.githubusercontent.com/mdeniz63/ec/master/deamon.json > /etc/docker/deamon.json;
+
 systemctl disable dnsmasq
 
 #For runing commands from internet
@@ -11,13 +15,6 @@ yum install -y yum-utils
 yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
 yum makecache fast
 yum install -y docker-ce
-
-
-
-# Add docker config file /etc/docker/deamon.json
-mkdir -p /home/ec_data
-
-curl https://raw.githubusercontent.com/mdeniz63/ec/master/deamon.json > /etc/docker/deamon.json 
 
 # Start and enable docker
 systemctl start docker
