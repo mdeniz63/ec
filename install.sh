@@ -27,7 +27,8 @@ container_name=ec
 docker pull $image_name
 
 # Mount for Volume
-echo "Enter path of storage which you want to store your files Ex: /home"
+echo -e "\n"
+echo "What is the path which you want to store files?"
 read -p "Path : " FilesMountPoint
 
 # Run image and create container with systemd services
