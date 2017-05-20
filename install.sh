@@ -13,12 +13,6 @@ yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce
 yum makecache fast
 yum install -y docker-ce
 
-# Add docker config file /etc/docker/deamon.json
-mkdir -p /home/ec_data
-mkdir -p /etc/docker
-cd /etc/docker/
-curl -O https://raw.githubusercontent.com/mdeniz63/ec/master/daemon.json
-
 # Start and enable docker
 systemctl start docker
 systemctl enable docker
@@ -32,8 +26,12 @@ image_name=mdeniz63/ec
 container_name=ec
 docker pull $image_name
 
+# Mount for Volume
+echo "Enter path of storage which you want to store your files Ex: /home"
+read -p "Path : " FilesMountPoint
+
 # Run image and create container with systemd services
-docker run --privileged --name $container_name -v files:/ARSIV -v nitro:/nitro/ -v /sys/fs/cgroup:/sys/fs/cgroup:ro -p 80:8181 -p 5432:5432 -d $image_name
+docker run --privileged --name $container_name -v $FilesMountPoint:/ARSIV -v nitro:/nitro/ -v /sys/fs/cgroup:/sys/fs/cgroup:ro -p 80:8181 -p 5432:5432 -d $image_name
 
 # Add Systemd service and enable
 cat > /usr/lib/systemd/system/ec.service << EOF1
