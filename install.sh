@@ -37,6 +37,9 @@ read -p "Path : " FilesMountPoint
 # Run image and create container with systemd services
 docker run --privileged --name $container_name -v $FilesMountPoint:/ARSIV -v nitro:/nitro/ -v /sys/fs/cgroup:/sys/fs/cgroup:ro -p 80:8181 -p 5432:5432 -d $image_name
 
+# Change owner of FilesMountPoint in container /ARSIV
+docker exec -it ec chown -R nitro:nitro /ARSIV
+
 # Step 4
 # Add Systemd service and enable
 cat > /usr/lib/systemd/system/ec.service << EOF1
