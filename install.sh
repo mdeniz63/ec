@@ -20,7 +20,7 @@ systemctl start docker
 systemctl enable docker
 
 # Create docker volumes
-docker volume create files
+#docker volume create files
 docker volume create nitro
 
 # Pull docker images from docker hub
