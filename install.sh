@@ -23,6 +23,9 @@ systemctl enable docker
 #docker volume create files
 docker volume create nitro
 
+# Login Docker Hub
+docker login -u mdeniz63
+
 # Pull docker images from docker hub
 image_name=mdeniz63/ec
 container_name=ec
