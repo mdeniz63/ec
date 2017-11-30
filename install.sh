@@ -1,8 +1,15 @@
 # For runing commands from internet
 # source <(curl -s https://raw.githubusercontent.com/mdeniz63/ec/master/install.sh);
-
 #!/bin/bash
 echo "Run as root user on Centos 7"
+
+# Login Docker Hub
+docker login -u mdeniz63
+
+# Mount for Volume
+echo -e "\n"
+echo "What is the path which you want to store files?"
+read -p "Path : " FilesMountPoint
 
 # Step 1
 # disable dnsmasq service which is advised from docker
@@ -23,19 +30,14 @@ systemctl enable docker
 #docker volume create files
 docker volume create nitro
 
-# Login Docker Hub
-docker login -u mdeniz63
+
 
 # Pull docker images from docker hub
 image_name=mdeniz63/ec
 container_name=ec
 docker pull $image_name
 
-# Step 3
-# Mount for Volume
-echo -e "\n"
-echo "What is the path which you want to store files?"
-read -p "Path : " FilesMountPoint
+
 
 # Run image and create container with systemd services
 docker run --privileged --name $container_name -v $FilesMountPoint:/ARSIV -v nitro:/nitro/ -v /sys/fs/cgroup:/sys/fs/cgroup:ro -p 80:8181 -p 5432:5432 -d $image_name
