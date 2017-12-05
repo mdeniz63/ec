@@ -1,7 +1,9 @@
 #!/bin/bash
 # Stop all containers
 docker stop $(docker ps -a -q)
-# Delete all containers
+# Docker remove nitro volume
+docker volume rm $(docker volume ls)
+# Delete all containers and Volumes with data
 docker rm -v $(docker ps -a -q)
 # Delete all images
 docker rmi $(docker images -q)
